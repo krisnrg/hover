@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Hover</title>
+</head>
+<style>
+    .wrapper {
+        width: 400px;
+        height: 400px;
+    }
+
+    img {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/reference_guide/cats_and_excessive_meowing_ref_guide/1800x1200_cats_and_excessive_meowing_ref_guide.jpg"
+            alt="">
+        <img src="https://images.unsplash.com/photo-1583524505974-6facd53f4597?ixlib=rb-1.2.1&w=1000&q=80" alt="">
+    </div>
+</body>
+<!-- <script src="js/imagesloaded.pkgd.min.js"></script> -->
+<script src="js/three.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/hover-effect.umd.js"></script>
+<script>
+    Array.from(document.querySelectorAll('.wrapper')).forEach((el) => {
+        const imgs = Array.from(el.querySelectorAll('img'));
+        new hoverEffect({
+            parent: el,
+            intensity: el.dataset.intensity || undefined,
+            speedIn: el.dataset.speedin || undefined,
+            speedOut: el.dataset.speedout || undefined,
+            easing: el.dataset.easing || undefined,
+            hover: el.dataset.hover || undefined,
+            image1: imgs[0].getAttribute('src'),
+            image2: imgs[1].getAttribute('src'),
+            displacementImage: "8.jpg",
+            // displacementImage: 'https://tympanus.net/Development/DistortionHoverEffect/img/displacement/8.jpg'
+        });
+    });
+</script>
+
+</html>
